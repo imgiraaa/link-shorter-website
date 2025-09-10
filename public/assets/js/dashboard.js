@@ -1,5 +1,11 @@
 import { supabase } from './supabaseClient.js';
 
+// --- KONFIGURASI PENTING ---
+// Atur domain utama yang akan Anda gunakan untuk link pendek.
+// Ganti jika Anda ingin menggunakan subdomain seperti 'link.hostvara.my.id'
+const SHORTLINK_DOMAIN = 'hostvara.my.id'; 
+// -------------------------
+
 // Cek autentikasi (Auth Guard)
 let currentUser = null;
 async function checkAuth() {
@@ -65,7 +71,8 @@ async function fetchLinks() {
                     ${links.map(link => `
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <a href="/${link.slug}" target="_blank" class="text-blue-600 font-medium hover:underline">hostvara.my.id/${link.slug}</a>
+                                <!-- PERUBAHAN DI SINI: Menggunakan https:// dan domain yang benar -->
+                                <a href="https://_${SHORTLINK_DOMAIN}_/${link.slug}" target="_blank" class="text-blue-600 font-medium hover:underline">_${SHORTLINK_DOMAIN}_/${link.slug}</a>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-slate-500 max-w-xs truncate" title="${link.original_url}">${link.original_url}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-slate-500 text-center font-semibold">${link.click_count}</td>
@@ -197,3 +204,5 @@ logoutButton.addEventListener('click', async () => {
 
 // Jalankan checkAuth saat halaman dimuat
 document.addEventListener('DOMContentLoaded', checkAuth);
+
+
