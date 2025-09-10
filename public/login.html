@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin - Link Shortener</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f0f9ff; /* sky-100 */
+        }
+        .form-input {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <main class="w-full max-w-md mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 md:p-10 transform transition-all duration-500 hover:scale-105">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-slate-800">Admin Panel</h1>
+                <p class="text-slate-500 mt-2">Silakan masuk untuk mengelola link Anda.</p>
+            </div>
+            
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-slate-700">Alamat Email</label>
+                    <input type="email" id="email" required class="form-input mt-1 block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+                    <input type="password" id="password" required class="form-input mt-1 block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                
+                <div id="error-message" class="text-red-600 text-sm text-center hidden p-2 bg-red-50 rounded-lg"></div>
+
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transform hover:scale-105 transition-transform duration-200">
+                        Masuk
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="assets/js/auth.js"></script>
+</body>
+</html>
+
+
